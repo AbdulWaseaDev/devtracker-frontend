@@ -10,7 +10,7 @@ function Profile() {
     bio: "Passionate React Developer focused on building clean UI and scalable apps.",
     avatar: "https://i.pravatar.cc/150?img=3",
     github: "https://github.com/dashboard",
-    linkedin: "https://www.linkedin.com"
+    linkedin: "https://linkedInexample.com"
   };
 
   return (
