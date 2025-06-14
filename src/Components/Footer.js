@@ -33,7 +33,7 @@ const Footer = () => {
 
             <Col md={4} sm={6}>
               <h5>Contact Us</h5>
-              <p>Location: Kachery Chock Near Civil Lines College, Multan, Pakistan</p>
+              <p>Location: Near Civil Lines College,Tariqabad colony MDA Road Kachery Chowk , Multan , Pakistan</p>
               <p>
                 Email: <a href="mailto:info@berlintechs.com" className="footer-link">info@berlintechs.com</a>
               </p>
