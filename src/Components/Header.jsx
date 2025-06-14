@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
-        <Navbar.Brand href="title name">Devtracker-Frontend-Main</Navbar.Brand>
+        <Navbar.Brand href="/">Devtracker-Frontend-Main</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav

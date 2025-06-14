@@ -19,16 +19,15 @@ const Footer = () => {
             <h5>Quick Links</h5>
             <ul className="list-unstyled">
               <li><a href="/" className="text-light text-decoration-none">Home</a></li>
-              <li><a href="/about" className="text-light text-decoration-none">About</a></li>
               <li><a href="/services" className="text-light text-decoration-none">Blog</a></li>
               <li><a href="/contact" className="text-light text-decoration-none">Profile</a></li>
             </ul>
           </Col>
           <Col md={4} sm={6}>
             <h5>Contact Us</h5>
+            <p>Location: Kachery Chock Near Civil Lines College, Multan, Pakistan</p>
             <p>Email: info@berlintechs.com</p>
             <p>Phone: +92305-1935993</p>
-            <p>Location: Kachery Chock Near Civil Lines College, Multan, Pakistan</p>
           </Col>
         </Row>
         <hr className="border-light" />

@@ -1,9 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Footer from './Components/Footer'; 
-import Home from './Components/Home'; 
-import Blog from './Components/Blog';
 import Header from './Components/Header';
+import Home from './Pages/Home'; 
+import Blog from './Pages/Blog';
+import Profile from './Pages/Profile';
+import Footer from './Components/Footer'; 
+import Main from './Components/Main';
 
 const NavScrollExample = () => {
   return (
@@ -11,11 +13,12 @@ const NavScrollExample = () => {
       <Header /> 
 
       <Routes>
-        <Route path="/" element={<Home />} />
+         <Route path="/" element={<Main />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/blog" element={<Blog />} />
-        {/* You can add more routes like <Route path="/profile" element={<Profile />} /> */}
+       <Route path="/profile" element={<Profile />} />
       </Routes>
-    <Home />
+
       <Footer />
     </Router>
   );

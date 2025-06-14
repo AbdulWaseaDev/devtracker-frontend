@@ -12,13 +12,19 @@ const blogPosts = [
     id: 2,
     title: "Why Use React Router?",
     content: "React Router enables dynamic routing in a React app. It keeps your UI in sync with the URL, allowing smooth page transitions without full-page reloads.",
-    image: "/images/react-router.jpg",
+    image: "/images/react router.jpeg",
   },
   {
     id: 3,
     title: "Understanding JSX in React",
     content: "JSX is a syntax extension that allows writing HTML-like code inside JavaScript. It makes your React code more readable and easier to write.",
-    image: "/images/jsx.jpg",
+    image: "/images/jsx in react.jpeg",
+  },
+  {
+    id: 4,
+    title: "How popularity get",
+    content: "I make the Blog to get popularity in pakistan. Pakistan is one famous to Blogger content. It makes your React code more readable and easier to write.",
+    image: "/images/bloger.jpeg",
   },
 ];
 
