@@ -1,35 +1,45 @@
-// import Container from 'react-bootstrap/Container';
 import React from 'react';
- import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
     <footer className="bg-dark text-light py-4 mt-5">
-       <Container>
+      <Container>
         <Row>
           <Col md={4} sm={12}>
             <h5>Your Logo</h5>
-           <img src="/logo berlin.jpeg" alt="Logo" width="120" />
-
-
+            <img src="/logo berlin.jpeg" alt="Logo" width="120" />
             <p>Delivering innovative tech solutions to empower your digital growth and online presence.</p>
-
           </Col>
+
           <Col md={4} sm={6}>
             <h5>Quick Links</h5>
             <ul className="list-unstyled">
-              <li><a href="/" className="text-light text-decoration-none">Home</a></li>
-              <li><a href="/services" className="text-light text-decoration-none">Blog</a></li>
-              <li><a href="/contact" className="text-light text-decoration-none">Profile</a></li>
+              <li>
+                <Link to="/home" className="text-light text-decoration-none">Home</Link>
+              </li>
+              <li>
+                <Link to="/blog" className="text-light text-decoration-none">Blog</Link>
+              </li>
+              <li>
+                <Link to="/profile" className="text-light text-decoration-none">Profile</Link>
+              </li>
             </ul>
           </Col>
+
           <Col md={4} sm={6}>
             <h5>Contact Us</h5>
             <p>Location: Kachery Chock Near Civil Lines College, Multan, Pakistan</p>
-            <p>Email: info@berlintechs.com</p>
-            <p>Phone: +92305-1935993</p>
+            <p>
+              Email: <a href="mailto:info@berlintechs.com" className="text-light text-decoration-none">info@berlintechs.com</a>
+            </p>
+            <p>
+              Phone: <a href="tel:+923051935993" className="text-light text-decoration-none">+92 305 1935993</a>
+            </p>
           </Col>
         </Row>
+
         <hr className="border-light" />
         <p className="text-center mb-0">
           &copy; {new Date().getFullYear()} YourCompany. All rights reserved.
@@ -38,4 +48,5 @@ const Footer = () => {
     </footer>
   );
 };
+
 export default Footer;
