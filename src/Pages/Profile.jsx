@@ -2,51 +2,65 @@
 import React from "react";
 
 function Profile() {
-  const user = {
-    name: "M. Nadeem",
-    email: "nadeemgentleman786@gmail.com",
-    role: "Frontend Developer",
-    location: "Multan, Pakistan",
-    bio: "Passionate React Developer focused on building clean UI and scalable apps.",
-    avatar: "https://i.pravatar.cc/150?img=3",
-    github: "https://github.com/dashboard",
-    linkedin: "https://linkedInexample.com",
-  };
+  const users = [
+    {
+      name: "M. Nadeem",
+      email: "nadeemgentleman786@gmail.com",
+      role: "Frontend Developer",
+      location: "Multan, Pakistan",
+      bio: "Passionate React Developer focused on building clean UI and scalable apps.",
+      avatar: "https://i.pravatar.cc/150?img=3",
+      github: "https://github.com/dashboard",
+      linkedin: "https://linkedInexample.com",
+    },
+    {
+      name: "M. Nadeem",
+      email: "nadeemgentleman786@gmail.com",
+      role: "Frontend Developer",
+      location: "Multan, Pakistan",
+      bio: "Passionate React Developer focused on building clean UI and scalable apps.",
+      avatar: "https://i.pravatar.cc/150?img=3",
+      github: "https://github.com/dashboard",
+      linkedin: "https://linkedInexample.com",
+    },
+    {
+      name: "M. Nadeem",
+      email: "nadeemgentleman786@gmail.com",
+      role: "Frontend Developer",
+      location: "Multan, Pakistan",
+      bio: "Passionate React Developer focused on building clean UI and scalable apps.",
+      avatar: "https://i.pravatar.cc/150?img=3",
+      github: "https://github.com/dashboard",
+      linkedin: "https://linkedInexample.com",
+    },
+  ];
 
   return (
-    <div style={styles.wrapper}>
-      <div style={styles.card}>
-        <img src={user.avatar} alt="Avatar" style={styles.avatar} />
-        <h2 style={styles.name}>{user.name}</h2>
-        <p style={styles.role}>{user.role}</p>
-        <p style={styles.bio}>{user.bio}</p>
-        <div style={styles.infoGroup}>
-          <p>
-            <strong>Email:</strong> {user.email}
-          </p>
-          <p>
-            <strong>Location:</strong> {user.location}
-          </p>
+    <div style={{ ...styles.wrapper, flexDirection: "column", alignItems: "center", gap: "20px" }}>
+      {users.map((user, index) => (
+        <div style={styles.card} key={index}>
+          <img src={user.avatar} alt="Avatar" style={styles.avatar} />
+          <h2 style={styles.name}>{user.name}</h2>
+          <p style={styles.role}>{user.role}</p>
+          <p style={styles.bio}>{user.bio}</p>
+          <div style={styles.infoGroup}>
+            <p>
+              <strong>Email:</strong> {user.email}
+            </p>
+            <p>
+              <strong>Location:</strong> {user.location}
+            </p>
+          </div>
+          <div style={styles.links}>
+            <a href={user.github} target="_blank" rel="noreferrer" style={styles.link}>
+              GitHub
+            </a>
+            <a href={user.linkedin} target="_blank" rel="noreferrer" style={styles.link}>
+              LinkedIn
+            </a>
+          </div>
         </div>
-        <div style={styles.links}>
-          <a
-            href={user.github}
-            target="_blank"
-            rel="noreferrer"
-            style={styles.link}
-          >
-            GitHub
-          </a>
-          <a
-            href={user.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            style={styles.link}
-          >
-            LinkedIn
-          </a>
-        </div>
-      </div>
+      ))}
     </div>
   );
 }
