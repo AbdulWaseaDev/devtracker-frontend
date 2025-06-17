@@ -36,7 +36,14 @@ function Profile() {
   ];
 
   return (
-    <div style={{ ...styles.wrapper, flexDirection: "column", alignItems: "center", gap: "20px" }}>
+    <div
+      style={{
+        ...styles.wrapper,
+        flexDirection: "column",
+        alignItems: "center",
+        gap: "20px",
+      }}
+    >
       {users.map((user, index) => (
         <div style={styles.card} key={index}>
           <img src={user.avatar} alt="Avatar" style={styles.avatar} />
@@ -52,10 +59,20 @@ function Profile() {
             </p>
           </div>
           <div style={styles.links}>
-            <a href={user.github} target="_blank" rel="noreferrer" style={styles.link}>
+            <a
+              href={user.github}
+              target="_blank"
+              rel="noreferrer"
+              style={styles.link}
+            >
               GitHub
             </a>
-            <a href={user.linkedin} target="_blank" rel="noreferrer" style={styles.link}>
+            <a
+              href={user.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              style={styles.link}
+            >
               LinkedIn
             </a>
           </div>
