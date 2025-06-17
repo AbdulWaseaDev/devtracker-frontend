@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Main from './Components/Main';
+import Header from './Components/Header';
+// import Home from './Pages/Home'; 
+import Blog from './Pages/Blog';
+import Profile from './Pages/Profile';
+import Track from './Pages/Track.jsx';
+import Footer from './Components/Footer'; 
+import HomeMain from './Pages/HomeMain.jsx';
 
-function App() {
+const NavScrollExample = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <Router>
+      <Header /> 
 
-export default App;
+     <Routes>
+  <Route path="/" element={<Main />} />
+  <Route path="/home" element={<HomeMain />} />
+  <Route path="/blog" element={<Blog />} />
+  <Route path="/profile" element={<Profile />} />
+  <Route path="/track" element={<Track />} />
+
+</Routes>
+
+
+      <Footer />
+    </Router>
+  );
+};
+
+export default NavScrollExample;
