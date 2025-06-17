@@ -1,39 +1,23 @@
 // src/pages/Profile.jsx
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 function Profile() {
-  const users = [
-    {
-      name: "M. Nadeem",
-      email: "nadeemgentleman786@gmail.com",
-      role: "Frontend Developer",
-      location: "Multan, Pakistan",
-      bio: "Passionate React Developer focused on building clean UI and scalable apps.",
-      avatar: "https://i.pravatar.cc/150?img=3",
-      github: "https://github.com/dashboard",
-      linkedin: "https://linkedInexample.com",
-    },
-    {
-      name: "M. Nadeem",
-      email: "nadeemgentleman786@gmail.com",
-      role: "Frontend Developer",
-      location: "Multan, Pakistan",
-      bio: "Passionate React Developer focused on building clean UI and scalable apps.",
-      avatar: "https://i.pravatar.cc/150?img=3",
-      github: "https://github.com/dashboard",
-      linkedin: "https://linkedInexample.com",
-    },
-    {
-      name: "M. Nadeem",
-      email: "nadeemgentleman786@gmail.com",
-      role: "Frontend Developer",
-      location: "Multan, Pakistan",
-      bio: "Passionate React Developer focused on building clean UI and scalable apps.",
-      avatar: "https://i.pravatar.cc/150?img=3",
-      github: "https://github.com/dashboard",
-      linkedin: "https://linkedInexample.com",
-    },
-  ];
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/v1/users/portfolio", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.users && data.users.length > 0) {
+          setUsers(data.users);
+        }
+      })
+      .catch((err) => console.error("Failed to fetch users:", err));
+  }, []);
+
+  if (users.length === 0) return <div>Loading profiles...</div>;
 
   return (
     <div
@@ -44,9 +28,9 @@ function Profile() {
         gap: "20px",
       }}
     >
-      {users.map((user, index) => (
-        <div style={styles.card} key={index}>
-          <img src={user.avatar} alt="Avatar" style={styles.avatar} />
+      {users.map((user) => (
+        <div style={styles.card} key={user._id}>
+          <img src={user.avatar.url} alt="Avatar" style={styles.avatar} />
           <h2 style={styles.name}>{user.name}</h2>
           <p style={styles.role}>{user.role}</p>
           <p style={styles.bio}>{user.bio}</p>
