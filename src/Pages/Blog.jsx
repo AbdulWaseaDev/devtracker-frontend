@@ -6,7 +6,11 @@ const Blog = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/v1/devto/feed", { credentials: "include" })
+    fetch("http://localhost:5000/api/v1/devto/feed", {
+      credentials: "include",
+      cache: "no-cache", // always get fresh data
+      headers: { "Cache-Control": "no-store" },
+    })
       .then((res) => {
         if (!res.ok) throw new Error("Network response was not ok");
         return res.json();
@@ -27,22 +31,30 @@ const Blog = () => {
 
   return (
     <div style={styles.container}>
-      <h1 style={styles.mainTitle}>Aggregated Dev.to Blogs</h1>
-      {posts.map((post) => (
-        <div key={post.id} style={styles.card}>
-          {post.cover_image && (
-            <img src={post.cover_image} alt={post.title} style={styles.image} />
-          )}
-          <a href={post.url} target="_blank" rel="noopener noreferrer">
-            <h2 style={styles.title}>{post.title}</h2>
-          </a>
-          <p style={styles.meta}>
-            by <strong>{post.source}</strong> on{" "}
-            {new Date(post.published_at).toLocaleDateString()}
-          </p>
-          <p style={styles.content}>{post.description}</p>
-        </div>
-      ))}
+      <h1 style={styles.mainTitle}>Blogs</h1>
+      {posts.map((post) => {
+        const isDefault = !post.cover_image;
+        return (
+          <div key={post.id} style={styles.card}>
+            <img
+              src={post.cover_image || "images/default/default-blog-cover.png"}
+              alt={post.title}
+              style={{
+                ...styles.image,
+                objectFit: isDefault ? "contain" : "cover",
+              }}
+            />
+            <a href={post.url} target="_blank" rel="noopener noreferrer">
+              <h2 style={styles.title}>{post.title}</h2>
+            </a>
+            <p style={styles.meta}>
+              by <strong>{post.source}</strong> on{" "}
+              {new Date(post.published_at).toLocaleDateString()}
+            </p>
+            <p style={styles.content}>{post.description}</p>
+          </div>
+        );
+      })}
     </div>
   );
 };
