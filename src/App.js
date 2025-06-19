@@ -18,6 +18,9 @@ const NavScrollExample = () => {
         <Route path="/" element={<Main />} />
         <Route path="/home" element={<HomeMain />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/zeeshan" element={<Blog />} />
+        <Route path="/blog/nadeem" element={<Blog />} />
+        <Route path="/blog/anus" element={<Blog />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/track" element={<Track />} />
       </Routes>
