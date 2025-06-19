@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const Blog = () => {
+  const { user: alias } = useParams(); // alias = 'zeeshan', 'nadeem', or 'anus'
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/v1/devto/feed", {
+    const baseURL = "http://localhost:5000/api/v1/devto/feed";
+    const endpoint = alias ? `${baseURL}/${alias}` : baseURL;
+
+    setLoading(true);
+    fetch(endpoint, {
       credentials: "include",
-      cache: "no-cache", // always get fresh data
+      cache: "no-cache",
       headers: { "Cache-Control": "no-store" },
     })
       .then((res) => {
-        if (!res.ok) throw new Error("Network response was not ok");
+        if (!res.ok) throw new Error(`Network error (${res.status})`);
         return res.json();
       })
       .then((data) => {
@@ -20,24 +26,27 @@ const Blog = () => {
         setLoading(false);
       })
       .catch((err) => {
-        console.error(err);
         setError(err.toString());
         setLoading(false);
       });
-  }, []);
+  }, [alias]);
 
-  if (loading) return <p>Loading articles...</p>;
+  if (loading) return <p>Loading articles…</p>;
   if (error) return <p>Error: {error}</p>;
+  if (!posts.length)
+    return <p>No posts found{alias ? ` for "${alias}"` : ""}.</p>;
 
   return (
     <div style={styles.container}>
-      <h1 style={styles.mainTitle}>Blogs</h1>
+      <h1 style={styles.mainTitle}>
+        {alias ? `${alias}'s Blogs` : "All Blogs"}
+      </h1>
       {posts.map((post) => {
         const isDefault = !post.cover_image;
         return (
           <div key={post.id} style={styles.card}>
             <img
-              src={post.cover_image || "images/default/default-blog-cover.png"}
+              src={post.cover_image || "/images/default/default-blog-cover.png"}
               alt={post.title}
               style={{
                 ...styles.image,
