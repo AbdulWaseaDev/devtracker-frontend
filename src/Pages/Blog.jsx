@@ -54,7 +54,7 @@ const Blog = () => {
               }}
             />
             <a href={post.url} target="_blank" rel="noopener noreferrer">
-              <h2 style={styles.title}>{post.title}</h2>
+              <h2 style={{ textDecoration: "none" }}>{post.title}</h2>
             </a>
             <p style={styles.meta}>
               by <strong>{post.source}</strong> on{" "}
