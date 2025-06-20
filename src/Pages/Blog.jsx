@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const Blog = () => {
   const { user: alias } = useParams(); // alias = 'zeeshan', 'nadeem', or 'anus'
@@ -43,6 +43,7 @@ const Blog = () => {
       </h1>
       {posts.map((post) => {
         const isDefault = !post.cover_image;
+        const username = post.source; // real Dev.to username from API
         return (
           <div key={post.id} style={styles.card}>
             <img
@@ -53,11 +54,18 @@ const Blog = () => {
                 objectFit: isDefault ? "contain" : "cover",
               }}
             />
-            <a href={post.url} target="_blank" rel="noopener noreferrer">
-              <h2 style={{ textDecoration: "none" }}>{post.title}</h2>
-            </a>
+            <Link
+              to={`/blog/${username}/${post.slug}`}
+              style={{
+                ...styles.title,
+                textDecoration: "none",
+                color: "inherit",
+              }}
+            >
+              <h2>{post.title}</h2>
+            </Link>
             <p style={styles.meta}>
-              by <strong>{post.source}</strong> on{" "}
+              by <strong>{username}</strong> on{" "}
               {new Date(post.published_at).toLocaleDateString()}
             </p>
             <p style={styles.content}>{post.description}</p>

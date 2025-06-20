@@ -8,6 +8,7 @@ import Profile from "./Pages/Profile";
 import Track from "./Pages/Track.jsx";
 import Footer from "./Components/Footer";
 import HomeMain from "./Pages/HomeMain.jsx";
+import BlogPost from "./Pages/BlogPost.jsx";
 
 const NavScrollExample = () => {
   return (
@@ -18,6 +19,7 @@ const NavScrollExample = () => {
         <Route path="/" element={<Main />} />
         <Route path="/home" element={<HomeMain />} />
         <Route path="/blog/:user?" element={<Blog />} />
+        <Route path="/blog/:user?/:slug?" element={<BlogPost />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/track" element={<Track />} />
       </Routes>
