@@ -64,7 +64,7 @@ const styles = {
   heroImage: {
     width: "100%",
     height: "auto",
-    maxHeight: "500px",
+    maxHeight: "900px",
     objectFit: "cover",
     display: "block",
     margin: 0,
